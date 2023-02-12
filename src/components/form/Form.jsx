@@ -5,7 +5,6 @@ const Form = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [heardAbout, setHeardAbout] = useState("");
   const [jobAddress, setJobAddress] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [attachment, setAttachment] = useState("");
@@ -32,11 +31,12 @@ const Form = () => {
         name,
         email,
         phone,
-        heardAbout,
+        heardAbout: selectedOption,
         jobAddress,
         jobDescription,
         attachment,
       };
+      localStorage.setItem("formData", JSON.stringify(formData));
     }
   };
 
@@ -54,7 +54,7 @@ const Form = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionChange = (option) => {
-    setSelectedOption(false);
+    setSelectedOption(event.target.value);
   };
 
   return (
@@ -111,6 +111,49 @@ const Form = () => {
           options={options}
           placeholder="Select an option"
           onChange={handleOptionChange}
+        />
+      </div>
+
+      <div className="contact-form__field">
+        <label htmlFor="jobAddress">Job address</label>
+
+        <input
+          type="text"
+          id="jobAddress"
+          value={jobAddress}
+          placeholder="Job address"
+          onChange={(event) => setJobAddress(event.target.value)}
+        />
+
+        <p className="contact-form__hint">
+          Please provide your address, city, town or suburb.
+        </p>
+      </div>
+
+      <div className="contact-form__field">
+        <label htmlFor="jobDescription">Job description</label>
+
+        <input
+          type="textarea"
+          id="jobDescription"
+          value={jobDescription}
+          placeholder="Job description"
+          onChange={(event) => setJobDescription(event.target.value)}
+        />
+
+        <p className="contact-form__hint">
+          Please include any information that may help us provide you with a
+          more accurate quote.
+        </p>
+      </div>
+
+      <div className="contact-form__field">
+        <input
+          className="btn btn--blue"
+          type="submit"
+          id="submit"
+          value="Submit enquiry"
+          onSubmit={handleSubmit}
         />
       </div>
     </form>
