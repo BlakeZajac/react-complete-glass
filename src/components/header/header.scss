@@ -10,6 +10,10 @@ $component-class: ".header";
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
+  @media all and (max-width: $bp-tablet) {
+    padding: 1rem 5%;
+  }
+
   &__logo {
     img {
       height: 40px;
@@ -62,6 +66,10 @@ $component-class: ".header";
       display: flex;
       align-items: center;
       gap: 1.5rem;
+
+      @media all and (max-width: $bp-mobile) {
+        gap: 1rem;
+      }
 
       &__item {
         cursor: pointer;
@@ -128,6 +136,10 @@ $component-class: ".header";
               text-transform: none;
               border-bottom: 1px solid $color-border;
               transition: all 0.2s ease-in-out;
+
+              @media all and (max-width: $bp-tablet) {
+                padding: 1.5rem 5%;
+              }
 
               &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
