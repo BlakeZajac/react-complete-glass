@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Glass-Repair = () => {
-  return (
-    <div>Glass-Repair</div>
-  )
-}
+const GlassRepair = () => {
+  return <div>GlassRepair</div>;
+};
 
-export default Glass-Repair
+export default GlassRepair;

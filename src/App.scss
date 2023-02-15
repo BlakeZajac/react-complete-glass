@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+// Breakpoints
+$bp-desktop-lg-up: 1367px;
+$bp-desktop-lg: 1366px;
+$bp-desktop-up: 981px;
+$bp-tablet: 980px;
+$bp-tablet-sm-up: 768px;
+$bp-tablet-sm: 767px;
+$bp-mobile-sm-up: 480px;
+$bp-mobile: 479px;
+
+// Color
+$color-black: #303134;
+$color-grey: #626366;
+$color-light-grey: #f7f7f7;
+$color-blue: #09b3e8;
+$color-white: #fff;
+$color-border: #dadada;
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap");
+$font-regular: "Roboto", sans-serif;
+
+// Placeholders
+
+%text-uppercase {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+%text-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position-x: 0%;
+  background-position-y: 100%;
+  background-size: 0% 0.05em;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: all 0.3s ease-in-out;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  &:hover {
+    background-size: 100% 0.05em;
+    transition: all 0.3s ease-in-out;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+%text-link-reverse {
+  background-size: 100% 0.05em;
+
+  &:hover {
+    background-size: 0% 0.05em;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+%text-indent {
+  text-indent: 5rem;
+
+  @media all and (max-width: $bp-tablet) {
+    text-indent: 2rem;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+%label {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: $color-black;
+}
+
+%input {
+  width: 100%;
+  padding: 1rem;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-xs);
+  font-size: 1rem;
+  font-weight: 400;
+  color: $color-black;
+  transition: all 0.1s ease-in-out;
+
+  &::placeholder {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: $color-black;
+    opacity: 0.5;
+    transition: all 0.1s ease-in-out;
   }
-  to {
-    transform: rotate(360deg);
+
+  &:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 1px 2px $color-blue, 0px 0px 0px 4px $color-blue;
+    transition: all 0.1s ease-in-out;
+
+    &::placeholder {
+      opacity: 1;
+      transition: all 0.1s ease-in-out;
+    }
   }
+}
+
+* {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  font-family: $font-regular, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+::selection {
+  background: $color-blue;
+  color: $color-white;
+}
+
+a {
+  color: initial;
+  text-decoration: none;
 }

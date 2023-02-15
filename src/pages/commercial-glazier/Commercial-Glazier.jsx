@@ -1,7 +1,7 @@
 import React from "react";
 
 const CommercialGlazier = () => {
-  return <div>Commercial-Glazier</div>;
+  return <div>CommercialGlazier</div>;
 };
 
 export default CommercialGlazier;
