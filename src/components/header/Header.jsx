@@ -7,10 +7,10 @@ import LogoLight from "../../assets/logos/logo-light.svg";
 import "./header.scss";
 
 const Header = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(true);
 
   const menuItems = [
-    { link: "/emergency-repairs/", title: "24/7 Emergency Repairs" },
+    { link: "/emergency-repairs/", title: "Emergency Repairs" },
     { link: "/commercial-glazier/", title: "Commercial Glazier" },
     { link: "/glass-repair/", title: "Glass Repair" },
     { link: "/projects/", title: "Projects" },
@@ -40,7 +40,7 @@ const Header = () => {
 
       <ul className="header__items">{renderMenuItems()}</ul>
 
-      <div className="header__mobile-menu">
+      <div className={`header__mobile-menu ${toggleMenu ? "open" : "close"}`}>
         <div className="header__mobile-menu__items">
           <div className="header__mobile-menu__items__item icon icon--phone">
             <BsFillTelephoneFill />
@@ -55,11 +55,13 @@ const Header = () => {
           </div>
         </div>
 
-        {toggleMenu && (
-          <div className="header__mobile-menu__container">
-            <ul className="header__items">{renderMenuItems()}</ul>
-          </div>
-        )}
+        <div
+          className={`header__mobile-menu__container  ${
+            toggleMenu ? "open" : "close"
+          }`}
+        >
+          <ul className="header__items">{renderMenuItems()}</ul>
+        </div>
       </div>
     </div>
   );

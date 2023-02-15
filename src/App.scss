@@ -21,7 +21,6 @@ $color-border: #dadada;
 $font-regular: "Roboto", sans-serif;
 
 // Placeholders
-
 %text-uppercase {
   font-size: 0.75rem;
   font-weight: 400;
@@ -127,4 +126,33 @@ code {
 a {
   color: initial;
   text-decoration: none;
+}
+
+// Animation
+$animation-up-cubic-half: reveal-up 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+$animation-up-reverse-cubic-half: reveal-up-reverse 0.5s
+  cubic-bezier(0.5, 0, 0.5, 1);
+
+@keyframes reveal-up {
+  from {
+    top: 20px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes reveal-up-reverse {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+
+  to {
+    top: 20px;
+    opacity: 0;
+  }
 }

@@ -1,10 +1,14 @@
 @import "../../App.scss";
+$component-class: ".header";
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2.5%;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   &__logo {
     img {
@@ -14,12 +18,164 @@
 
   &__items {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
+    padding: 0;
     list-style-type: none;
+
+    @media all and (max-width: $bp-tablet) {
+      display: none;
+    }
 
     &__item {
       @extend %text-uppercase;
       @extend %text-link;
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+
+    @media all and (max-width: $bp-tablet) {
+      display: block;
+    }
+
+    &.open {
+      max-height: 100vh;
+
+      #{$component-class} {
+        &__items__item {
+          position: relative;
+          top: 20px;
+          opacity: 0;
+          animation: $animation-up-cubic-half forwards;
+
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+              animation-delay: 0.1s * $i;
+            }
+          }
+        }
+      }
+    }
+
+    &__items {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      &__item {
+        cursor: pointer;
+
+        svg {
+          fill: $color-black;
+        }
+      }
+    }
+
+    &__icon {
+      cursor: pointer;
+
+      svg {
+        display: block;
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: $color-blue;
+      }
+    }
+
+    &__container {
+      position: absolute;
+      width: 100vw;
+      left: 0;
+      padding: 2rem 0;
+      margin-top: 0.25rem;
+      background: $color-white;
+      transition: 0.75s max-height cubic-bezier(0.5, 0, 0.5, 1);
+
+      &.open {
+        transition: 0.75s max-height cubic-bezier(0.5, 0, 0.5, 1);
+      }
+
+      &.close {
+        #{$component-class} {
+          &__items__item {
+            position: relative;
+            top: 0;
+            opacity: 1;
+            animation: $animation-up-reverse-cubic-half forwards;
+
+            @for $i from 1 through 10 {
+              &:nth-child(#{$i}) {
+                animation-delay: 0.1s * $i;
+              }
+            }
+          }
+        }
+      }
+
+      #{$component-class} {
+        &__items {
+          display: block;
+
+          &__item {
+            padding: 0;
+
+            a {
+              display: block;
+              padding: 1.5rem 2.5%;
+              font-size: 1.5rem;
+              letter-spacing: 0;
+              text-transform: none;
+              border-bottom: 1px solid $color-border;
+              transition: all 0.2s ease-in-out;
+
+              &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+                transition: all 0.2s ease-in-out;
+
+                &::after {
+                  margin-right: -0.5rem;
+                  transition: all 0.2s ease-in-out;
+                }
+              }
+
+              &::after {
+                content: url("../../assets/icons/icon-AiOutlineArrowRight.svg");
+                float: right;
+                position: relative;
+                top: 4px;
+                transition: all 0.2s ease-in-out;
+              }
+            }
+
+            &:first-child {
+              border-top: 1px solid $color-border;
+            }
+
+            &:hover {
+              background-size: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .icon {
+    &--phone {
+      svg {
+        display: block;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+
+    &--email {
+      svg {
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
     }
   }
 }
