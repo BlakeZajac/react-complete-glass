@@ -7,7 +7,7 @@ import LogoLight from "../../assets/logos/logo-light.svg";
 import "./header.scss";
 
 const Header = () => {
-  const [toggleMenu, setToggleMenu] = useState(true);
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   const menuItems = [
     { link: "/emergency-repairs/", title: "Emergency Repairs" },
@@ -31,7 +31,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__logo">
         <Link to="/">
           <img src={LogoLight} alt="" />
@@ -63,7 +63,7 @@ const Header = () => {
           <ul className="header__items">{renderMenuItems()}</ul>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

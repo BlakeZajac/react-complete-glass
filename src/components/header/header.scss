@@ -5,6 +5,8 @@ $component-class: ".header";
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
   padding: 1rem 2.5%;
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
@@ -94,17 +96,23 @@ $component-class: ".header";
     &__container {
       position: absolute;
       width: 100vw;
+      height: calc(100vh - 76px);
       left: 0;
-      padding: 2rem 0;
-      margin-top: 0.25rem;
+      padding: 0;
+      margin-top: 1.5rem;
       background: $color-white;
-      transition: 0.75s max-height cubic-bezier(0.5, 0, 0.5, 1);
+      opacity: 0;
+      transition: 0.5s opacity cubic-bezier(0.5, 0, 0.5, 1);
+      transition-delay: 0.5s;
 
       &.open {
-        transition: 0.75s max-height cubic-bezier(0.5, 0, 0.5, 1);
+        opacity: 1;
+        transition: 0.2s opacity cubic-bezier(0.5, 0, 0.5, 1);
       }
 
       &.close {
+        display: none;
+
         #{$component-class} {
           &__items__item {
             position: relative;

@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+.content {
+  &__row {
+  }
+
+  &__multi-heading {
+    display: flex;
+    gap: 5rem;
+    padding-bottom: 2rem;
+
+    p {
+      @extend %text-uppercase;
+
+      &:last-child {
+        text-indent: 0;
+      }
+    }
+  }
+
+  &__content {
+    h2 {
+      padding-bottom: 3rem;
+    }
+
+    p {
+      max-width: 800px;
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import React from "react";
 import "./button.scss";
 
-const Button = (text, link, className) => {
+const Button = ({ btnLink, btnText, className }) => {
   const btnClass = `btn ${className}`;
 
   return (
-    <a className="btn__wrapper">
-      <button className={btnClass}>{text}</button>
+    <a className="btn__wrapper" href={btnLink}>
+      <button className={btnClass}>{btnText}</button>
     </a>
   );
 };

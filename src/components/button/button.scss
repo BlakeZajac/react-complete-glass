@@ -1,14 +1,66 @@
+@import "../../App.scss";
+
 .btn {
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: 0;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  @extend %text-uppercase;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+  }
+
+  @media all and (max-width: $bp-tablet-sm) {
+    width: 100%;
+  }
+
   &__wrapper {
-    padding: 1rem 2rem;
+    display: block;
+    width: fit-content;
+
+    @media all and (max-width: $bp-tablet-sm) {
+      width: 100%;
+    }
   }
 
   &--blue {
+    background-color: $color-blue;
+    color: $color-white;
+
+    &:hover {
+      background-color: #08a1d1;
+    }
   }
 
   &--red {
+    background-color: #da1414;
+    color: $color-white;
+
+    &:hover {
+      background-color: #c51212;
+    }
+  }
+
+  &--black {
+    background-color: $color-black;
+    color: $color-white;
+
+    &:hover {
+      background-color: #444548;
+    }
   }
 
   &--white {
+    background-color: $color-white;
+    border-color: $color-border;
+    color: $color-black;
+
+    &:hover {
+      background-color: #e6e6e6;
+    }
   }
 }
