@@ -6,6 +6,7 @@ import Dropdown from "./dropdown/Dropdown";
 import Footer from "./footer/Footer";
 import Form from "./form/Form";
 import Header from "./header/Header";
+import HeadingBlock from "./heading-block/HeadingBlock";
 import Hero from "./hero/Hero";
 import MediaWithText from "./media-with-text/Media-With-Text";
 import NewsItem from "./news-item/News-Item";
@@ -22,6 +23,7 @@ export {
   Footer,
   Form,
   Header,
+  HeadingBlock,
   Hero,
   MediaWithText,
   NewsItem,
