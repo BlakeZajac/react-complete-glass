@@ -1,9 +1,55 @@
 import React from "react";
 import videoThumbnail from "../../assets/components/video/Complete-Glass-Company-Profile-1920x1080-1.jpg";
 import HomeHeroImg from "../../assets/pages/home/complete-glass-home-hero-1920x800-1.jpg";
+import { AccordionGroup } from "../../components/accordion-group/AccordionGroup";
 import { Content, Hero, Video } from "../../components/index";
 
 const Home = () => {
+  const serviceAccordionItems = [
+    {
+      icon: "",
+      title: "Emergency Repairs",
+      content:
+        "You can count on Complete Glass when an emergency strikes for glass repairs and replacement.",
+      expanded: false,
+    },
+    {
+      icon: "",
+      title: "Strata Glass Install",
+      content:
+        "Our experience with strata work means we are able to work on multi-story buildings, scaffolds, and stage lifts.",
+      expanded: false,
+    },
+    {
+      icon: "",
+      title: "Shopfront Glass",
+      content:
+        "Catch people's eyes and make your business stand out with our custom shopfront glass installation service.",
+      expanded: false,
+    },
+    {
+      icon: "",
+      title: "Architectural Glass",
+      content:
+        "Lower energy cost and reduce noise pollution with our high-performance architectural glass.",
+      expanded: false,
+    },
+    {
+      icon: "",
+      title: "Project Management",
+      content:
+        "Complete Glass manages glass work for residential, commercial, strata, shopfront and office buildings.",
+      expanded: false,
+    },
+    {
+      icon: "",
+      title: "Energy Efficiency",
+      content:
+        "Improve your comfort and your power bill. Protect yourself all year round from outside conditions while reducing your power bills.",
+      expanded: false,
+    },
+  ];
+
   return (
     <main className="main-content">
       <Hero
@@ -27,6 +73,8 @@ const Home = () => {
       />
 
       <Video videoThumbnail={videoThumbnail} videoID="Oxl8MOGgwv0" />
+
+      <AccordionGroup items={serviceAccordionItems} />
     </main>
   );
 };

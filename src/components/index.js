@@ -1,4 +1,3 @@
-import Accordion from "./accordion/Accordion";
 import Button from "./button/Button";
 import Card from "./card/Card";
 import Content from "./content/Content";
@@ -15,7 +14,6 @@ import Testimonial from "./testimonial/Testimonial";
 import Video from "./video/Video";
 
 export {
-  Accordion,
   Button,
   Card,
   Content,
