@@ -1,7 +1,8 @@
 @import "../../App.scss";
 
 .hero {
-  padding: 8rem 0;
+  padding: 8rem 0 !important;
+  background-size: cover;
   background-repeat: no-repeat;
 
   @media all and (max-width: $bp-tablet) {
@@ -9,7 +10,7 @@
   }
 
   &__row {
-    padding: 4rem 0;
+    padding: 4rem 0 !important;
 
     @media all and (max-width: $bp-tablet) {
       width: 100% !important;
