@@ -5,31 +5,43 @@ const Content = ({
   multiHeadingOneText,
   multiHeadingTwoText,
   headingText,
-  bodyText,
+  bodyText1,
+  bodyText2,
+  bodyText3,
+  bodyText4,
 }) => {
   const renderMultiHeading =
-    multiHeadingOneText !== "" || multiHeadingTwoText !== "";
+    (multiHeadingOneText || multiHeadingTwoText) &&
+    (multiHeadingOneText !== "" || multiHeadingTwoText !== "");
 
-  const lines = headingText.split(/\r\n|\r|\n/); // Split the text by new line characters
+  const renderBodyText =
+    (bodyText1 || bodyText2 || bodyText3 || bodyText4) &&
+    (bodyText1 !== "" ||
+      bodyText2 !== "" ||
+      bodyText3 !== "" ||
+      bodyText4 !== "");
 
   return (
     <div className="content section">
       <div className="content__row row">
         {renderMultiHeading && (
           <div className="content__multi-heading text-indent">
-            {multiHeadingOneText !== "" && <p>{multiHeadingOneText}</p>}
-            {multiHeadingTwoText !== "" && <p>{multiHeadingTwoText}</p>}
+            {multiHeadingOneText && <p>{multiHeadingOneText}</p>}
+            {multiHeadingTwoText && <p>{multiHeadingTwoText}</p>}
           </div>
         )}
 
-        <div className="content__content">
-          <h2 className="text-indent">
-            {lines.map((line, index) => (
-              <span key={index}>{line}</span>
-            ))}
-          </h2>
-          <p>{bodyText}</p>
-        </div>
+        {renderBodyText && (
+          <div className="content__content">
+            <h2 className="text-indent">{headingText}</h2>
+            <div className="content__content__body">
+              {bodyText1 && <p>{bodyText1}</p>}
+              {bodyText2 && <p>{bodyText2}</p>}
+              {bodyText3 && <p>{bodyText3}</p>}
+              {bodyText4 && <p>{bodyText4}</p>}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

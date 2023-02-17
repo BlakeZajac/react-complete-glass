@@ -9,8 +9,13 @@
     gap: 5rem;
     padding-bottom: 2rem;
 
+    @media all and (max-width: $bp-tablet) {
+      gap: 2rem;
+    }
+
     p {
       @extend %text-uppercase;
+      padding-bottom: 0;
 
       &:last-child {
         text-indent: 0;
