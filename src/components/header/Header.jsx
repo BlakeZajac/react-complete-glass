@@ -21,7 +21,9 @@ const Header = () => {
   const renderMenuItems = () => {
     return menuItems.map((item) => (
       <li key={item.link} className="header__items__item">
-        <Link to={item.link}>{item.title}</Link>
+        <Link to={item.link} onClick={() => setToggleMenu(false)}>
+          {item.title}
+        </Link>
       </li>
     ));
   };
@@ -34,7 +36,7 @@ const Header = () => {
     <header className="header">
       <div className="header__logo">
         <Link to="/">
-          <img src={LogoLight} alt="" />
+          <img src={LogoLight} alt="" onClick={() => setToggleMenu(false)} />
         </Link>
       </div>
 
@@ -42,11 +44,17 @@ const Header = () => {
 
       <div className={`header__mobile-menu ${toggleMenu ? "open" : "close"}`}>
         <div className="header__mobile-menu__items">
-          <div className="header__mobile-menu__items__item icon icon--phone">
+          <div
+            className="header__mobile-menu__items__item icon icon--phone"
+            onClick={() => setToggleMenu(false)}
+          >
             <BsFillTelephoneFill />
           </div>
 
-          <div className="header__mobile-menu__items__item icon icon--email">
+          <div
+            className="header__mobile-menu__items__item icon icon--email"
+            onClick={() => setToggleMenu(false)}
+          >
             <MdEmail />
           </div>
 

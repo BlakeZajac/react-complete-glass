@@ -17,7 +17,12 @@ function AccordionGroup({ items, onItemChange }) {
     <div className="accordion__items">
       {items.map((item, index) => (
         <div className="accordion__items__item" key={index}>
-          <img src={item.icon} className="accordion__items__item__icon" />
+          <img
+            src={item.icon}
+            alt={item.icon}
+            className="accordion__items__item__icon"
+          />
+
           <h4
             className="accordion__items__item__header"
             onClick={() => handleItemClick(index)}

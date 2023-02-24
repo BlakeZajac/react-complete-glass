@@ -1,0 +1,70 @@
+@import "../../App.scss";
+
+.media-with-text {
+  @media all and (max-width: $bp-tablet) {
+    padding: 0 !important;
+  }
+
+  &__row {
+    display: flex;
+    gap: 3rem;
+
+    @media all and (max-width: $bp-tablet) {
+      width: 100% !important;
+      gap: 0;
+      flex-direction: column;
+      padding: 0 !important;
+    }
+  }
+
+  &__col {
+    width: 50%;
+
+    @media all and (max-width: $bp-tablet) {
+      width: 100%;
+    }
+
+    &--image {
+      padding-bottom: 35%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @media all and (max-width: $bp-tablet) {
+        padding-bottom: 55%;
+      }
+
+      @media all and (max-width: $bp-mobile) {
+        padding-bottom: 70%;
+      }
+    }
+
+    &--content {
+      @media all and (max-width: $bp-tablet) {
+        max-width: 90%;
+        padding: 3rem 0;
+        margin: 0 auto;
+      }
+
+      .heading-block {
+        padding-bottom: 2rem;
+
+        .text-indent {
+          text-indent: 0;
+        }
+
+        h2 {
+          padding-bottom: 2rem;
+        }
+      }
+    }
+  }
+
+  &.image-right {
+    @media all and (max-width: $bp-tablet) {
+      .media-with-text__row {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}

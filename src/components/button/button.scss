@@ -63,4 +63,17 @@
       background-color: #e6e6e6;
     }
   }
+
+  &--wrapper {
+    @media all and (max-width: $bp-tablet) {
+      a:not(:last-child) {
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    @media all and (min-width: $bp-tablet-sm-up) {
+      display: flex;
+      gap: 0.75rem;
+    }
+  }
 }

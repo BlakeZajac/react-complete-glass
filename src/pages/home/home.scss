@@ -1,0 +1,13 @@
+@import "../../App.scss";
+
+.media-with-text {
+  @media all and (min-width: $bp-desktop-up) {
+    &:not(:last-child) {
+      padding: 0 !important;
+    }
+
+    &:last-child {
+      padding-top: 0 !important;
+    }
+  }
+}
