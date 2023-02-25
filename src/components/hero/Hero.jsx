@@ -33,6 +33,9 @@ const Hero = ({
     [backgroundImage]
   );
 
+  const words = titleText.split(" ");
+  const lastIndex = words.length - 1;
+
   if (isTablet) {
     return (
       <div className="hero section">
@@ -42,7 +45,14 @@ const Hero = ({
           </div>
 
           <div className="hero__content">
-            <h1>{titleText}</h1>
+            <h1>
+              {words.map((word, index) => (
+                <span className="outer" key={index}>
+                  <span className="inner">{word}</span>
+                  {index !== lastIndex ? "\u00A0" : null}
+                </span>
+              ))}
+            </h1>
             <p>{bodyText}</p>
 
             <div className="hero__button-wrapper">
@@ -67,7 +77,14 @@ const Hero = ({
     <div className="hero section" style={backgroundImageStyle}>
       <div className="hero__row row">
         <div className="hero__content">
-          <h1>{titleText}</h1>
+          <h1>
+            {words.map((word, index) => (
+              <span className="outer" key={index}>
+                <span className="inner">{word}</span>
+                {index !== lastIndex ? "\u00A0" : null}
+              </span>
+            ))}
+          </h1>
           <p>{bodyText}</p>
 
           <div className="hero__button-wrapper">

@@ -304,3 +304,13 @@ $animation-up-reverse-cubic-half: reveal-up-reverse 0.5s
     opacity: 0;
   }
 }
+
+@keyframes text-reveal {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, -5%, 0);
+  }
+}

@@ -46,6 +46,31 @@
       padding: 2rem 5%;
       margin-top: -3rem;
     }
+
+    h1 {
+      padding-bottom: 0.75rem;
+      line-height: 1;
+
+      .outer {
+        display: inline-block;
+        overflow: hidden;
+
+        @for $i from 1 through 50 {
+          &:nth-child(#{$i}) {
+            .inner {
+              animation-delay: 0.1s * $i;
+            }
+          }
+        }
+      }
+
+      .inner {
+        display: inline-block;
+        will-change: transform;
+        transform: translate3d(0, 100%, 0);
+        animation: text-reveal 0.8s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+      }
+    }
   }
 
   &__button-wrapper {

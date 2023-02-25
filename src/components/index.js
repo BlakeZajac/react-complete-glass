@@ -10,7 +10,7 @@ import Hero from "./hero/Hero";
 import MediaWithText from "./media-with-text/Media-With-Text";
 import NewsItem from "./news-item/News-Item";
 import Project from "./project/Project";
-import Testimonial from "./testimonial/Testimonial";
+import TestimonialSlider from "./testimonial-slider/TestimonialSlider";
 import Video from "./video/Video";
 
 export {
@@ -26,6 +26,6 @@ export {
   MediaWithText,
   NewsItem,
   Project,
-  Testimonial,
+  TestimonialSlider,
   Video,
 };

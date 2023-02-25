@@ -4,7 +4,13 @@ import CommercialGlazierImg from "../../assets/pages/home/complete-glass-home-co
 import EmergencyRepairsImg from "../../assets/pages/home/complete-glass-home-emergency-repairs-980x900-1.jpg";
 import GlassRepairImg from "../../assets/pages/home/complete-glass-home-glass-repair-980x900-1.jpg";
 import HeroImg from "../../assets/pages/home/complete-glass-home-hero-1920x800-1.jpg";
-import { Content, Hero, MediaWithText, Video } from "../../components/index";
+import {
+  Content,
+  Hero,
+  MediaWithText,
+  TestimonialSlider,
+  Video,
+} from "../../components/index";
 import "./home.scss";
 
 const Home = () => {
@@ -122,6 +128,8 @@ const Home = () => {
         btnText2="Learn more"
         className2="btn--white"
       />
+
+      <TestimonialSlider />
     </main>
   );
 };
