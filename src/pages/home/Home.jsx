@@ -6,6 +6,7 @@ import GlassRepairImg from "../../assets/pages/home/complete-glass-home-glass-re
 import HeroImg from "../../assets/pages/home/complete-glass-home-hero-1920x800-1.jpg";
 import {
   Content,
+  Footer,
   Hero,
   MediaWithText,
   TestimonialSlider,
@@ -130,6 +131,8 @@ const Home = () => {
       />
 
       <TestimonialSlider />
+
+      <Footer />
     </main>
   );
 };
