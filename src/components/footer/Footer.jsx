@@ -6,12 +6,8 @@ const Footer = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
   const adminApiKey = process.env.REACT_APP_CM_ADMIN_KEY;
-  const clientId = process.env.REACT_APP_CM_CLIENT_ID;
+  // const clientId = process.env.REACT_APP_CM_CLIENT_ID;
   const listId = process.env.REACT_APP_CM_LIST_ID;
-
-  console.log(adminApiKey);
-  console.log(clientId);
-  console.log(listId);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +16,7 @@ const Footer = () => {
 
     try {
       const response = await axios.post(
-        `https://api.createsend.com/api/v3.2/subscribers/${listId}.{xml|json}`,
+        `https://crossorigin.me/https://api.createsend.com/api/v3.3/subscribers/${listId}.{xml|json}`,
         data,
         {
           auth: {
