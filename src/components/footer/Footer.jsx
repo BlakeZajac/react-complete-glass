@@ -1,34 +1,47 @@
-import React, { useState } from "react";
+import axios from "axios";
+import { useState } from "react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(null);
+  const adminApiKey = process.env.REACT_APP_CM_ADMIN_KEY;
+  const clientId = process.env.REACT_APP_CM_CLIENT_ID;
+  const listId = process.env.REACT_APP_CM_LIST_ID;
 
-  async function handleSubmit(e) {
+  console.log(adminApiKey);
+  console.log(clientId);
+  console.log(listId);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const apiKey =
-      "pAMyMOnWi9NmNx+P3OfC4PqfAs16wkIhyFa5+y91sGSD5/MlaNlWBp2IoE9LSWFZzL7JysijwUcWbg2S4uXadPm9djJ7KJtt87uMvNgOgyayVWx5BsxrIzLwOQQYjh6WzVtfFN1aBjQ+U6HJ8CMLlw==";
-    const listId = "676535965eb0653ba2b362978845003d";
-    const url =
-      "https://api.createsend.com/api/v3.3/subscribers/676535965eb0653ba2b362978845003d.json";
-    const data = { EmailAddress: email };
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${btoa(`apikey:${apiKey}`)}`,
-      },
-      body: JSON.stringify(data),
-    };
 
-    const response = await fetch(url, options);
-    if (response.ok) {
-      setEmail("");
-      setStatus("success");
-    } else {
-      setStatus("error");
+    const data = { EmailAddress: email };
+
+    try {
+      const response = await axios.post(
+        `https://api.createsend.com/api/v3.2/subscribers/${listId}.{xml|json}`,
+        data,
+        {
+          auth: {
+            username: adminApiKey,
+            password: "",
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        setSuccess(true);
+        setEmail("");
+      } else {
+        const errorData = response.data;
+        setError(errorData.Message);
+      }
+    } catch (error) {
+      console.error(error);
+      setError("Something went wrong. Please try again later.");
     }
-  }
+  };
 
   const footerItems = [
     {
@@ -91,6 +104,7 @@ const Footer = () => {
       ],
     },
   ];
+
   return (
     <div className="footer section">
       <div className="footer__row row">
@@ -106,12 +120,10 @@ const Footer = () => {
             />
 
             <button type="submit">Subscribe</button>
-          </form>
 
-          {status === "success" && <p>Thank you for subscribing!</p>}
-          {status === "error" && (
-            <p>There was an error subscribing. Please try again later.</p>
-          )}
+            {success && <p>Thank you for subscribing!</p>}
+            {error && <p>{error}</p>}
+          </form>
         </div>
       </div>
     </div>
