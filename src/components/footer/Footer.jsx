@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   AiFillCheckCircle,
   AiFillCloseCircle,
@@ -18,6 +18,8 @@ const Footer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [isTablet, setIsTablet] = useState(false);
+  const [height, setHeight] = useState(0);
+  const footerListRef = useRef(null);
 
   const adminApiKey = process.env.REACT_APP_CM_ADMIN_KEY;
   // const clientId = process.env.REACT_APP_CM_CLIENT_ID;
@@ -252,14 +254,7 @@ const Footer = () => {
                 >
                   {item.heading}
                 </h4>
-                <ul
-                  className="footer__items__list"
-                  // style={{
-                  //   height: index === activeIndex ? "auto" : 0,
-                  //   overflow: index === activeIndex ? "visible" : "hidden",
-                  //   transition: "height 0.2s ease-out",
-                  // }}
-                >
+                <ul className="footer__items__list">
                   {item.items.map((subItem, subIndex) => (
                     <li key={subIndex}>
                       <a
@@ -274,9 +269,9 @@ const Footer = () => {
               </div>
             ))
           ) : (
-            <div className="footer__items__col">
+            <div className="footer__items__col-wrapper">
               {footerItems.map((item, index) => (
-                <React.Fragment key={index}>
+                <div key={index} className="footer__items__col">
                   <h4 className="footer__items__heading">{item.heading}</h4>
                   <ul className="footer__items__list">
                     {item.items.map((subItem, subIndex) => (
@@ -290,7 +285,7 @@ const Footer = () => {
                       </li>
                     ))}
                   </ul>
-                </React.Fragment>
+                </div>
               ))}
             </div>
           )}

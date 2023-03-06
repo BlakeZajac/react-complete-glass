@@ -127,7 +127,6 @@
   &__items {
     display: flex;
     justify-content: space-between;
-    gap: 0 5rem;
     padding-bottom: 5rem;
 
     @media all and (max-width: $bp-tablet) {
@@ -137,11 +136,22 @@
     &__col {
       width: fit-content;
 
+      &-wrapper {
+        display: flex;
+        gap: 0 5rem;
+      }
+
       &--details {
-        width: 60%;
+        width: 50%;
 
         p {
           padding-top: 0.5rem;
+        }
+      }
+
+      &--active {
+        .footer__items__list {
+          display: block;
         }
       }
     }
@@ -163,6 +173,11 @@
     &__list {
       list-style-type: none;
       padding: 0;
+
+      @media all and (max-width: $bp-tablet) {
+        display: none;
+        transition: all 0.2s ease-in-out;
+      }
 
       li {
         margin: 0.375rem 0;
@@ -219,6 +234,7 @@
 
     &__content {
       @extend %text-uppercase;
+      padding-bottom: 0 !important;
 
       a {
         @extend %text-link;
