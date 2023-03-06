@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Header from "./components/header/Header";
+import { Footer, Header } from "./components/index";
 import {
   AboutPage,
   CommercialGlazierPage,
@@ -27,6 +27,8 @@ function App() {
         <Route path="/about/" element={<AboutPage />} />
         <Route path="/contact/" element={<ContactPage />} />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }

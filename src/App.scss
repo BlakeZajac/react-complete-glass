@@ -314,3 +314,13 @@ $animation-up-reverse-cubic-half: reveal-up-reverse 0.5s
     transform: translate3d(0, -5%, 0);
   }
 }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
