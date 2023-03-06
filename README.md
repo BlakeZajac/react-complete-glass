@@ -1,6 +1,6 @@
 # React Complete Glass
 
-## About Complete Glass
+### About Complete Glass
 
 Complete Glass are an expert Sydney-wide glazing company. Priding themsleves on their responsive and professional service – from emergency repairs to large scale commercial projects.
 
