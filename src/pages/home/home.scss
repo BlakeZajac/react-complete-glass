@@ -1,5 +1,13 @@
 @import "../../App.scss";
 
+.services {
+  .content__content {
+    h2 {
+      padding-bottom: 4rem;
+    }
+  }
+}
+
 .media-with-text {
   @media all and (min-width: $bp-desktop-up) {
     &:not(:last-child) {

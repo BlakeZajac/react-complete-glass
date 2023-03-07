@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./accordion-group.scss";
 
 function AccordionGroup({ items, onItemChange }) {
   const [expandedItems, setExpandedItems] = useState(
@@ -16,28 +17,40 @@ function AccordionGroup({ items, onItemChange }) {
   return (
     <div className="accordion__items">
       {items.map((item, index) => (
-        <div className="accordion__items__item" key={index}>
-          <img
-            src={item.icon}
-            alt={item.icon}
-            className="accordion__items__item__icon"
-          />
+        <div
+          className={`accordion__items__item ${
+            expandedItems[index] ? "accordion__items__item--expanded" : ""
+          }`}
+          key={index}
+          onClick={() => handleItemClick(index)}
+        >
+          <div className="accordion__items__item__icon-wrapper">
+            <img
+              src={item.icon}
+              alt={item.icon}
+              className="accordion__items__item__icon"
+            />
+          </div>
 
-          <h4
-            className="accordion__items__item__header"
-            onClick={() => handleItemClick(index)}
-          >
-            {item.title}
-          </h4>
-          {expandedItems[index] && (
-            <div className="accordion__items__item__content">
+          <div className="accordion__items__item__content">
+            <h5 className="accordion__items__item__content__header">
+              {item.title}
+            </h5>
+
+            <div
+              className={`accordion__items__item__content__content ${
+                expandedItems[index]
+                  ? "accordion__items__item__content__content--expanded"
+                  : ""
+              }`}
+            >
               <p>{item.content}</p>
             </div>
-          )}
+          </div>
         </div>
       ))}
     </div>
   );
 }
 
-export { AccordionGroup };
+export default AccordionGroup;

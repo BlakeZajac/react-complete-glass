@@ -14,6 +14,8 @@ const HeadingBlock = ({
     (multiHeadingOneText || multiHeadingTwoText) &&
     (multiHeadingOneText !== "" || multiHeadingTwoText !== "");
 
+  const renderSingleHeading = headingText && headingText !== "";
+
   const renderBodyText =
     (bodyText1 || bodyText2 || bodyText3 || bodyText4) &&
     (bodyText1 !== "" ||
@@ -30,17 +32,18 @@ const HeadingBlock = ({
         </div>
       )}
 
-      {renderBodyText && (
-        <div className="content__content">
-          <h2 className="text-indent">{headingText}</h2>
+      <div className="content__content">
+        {renderSingleHeading && <h2 className="text-indent">{headingText}</h2>}
+
+        {renderBodyText && (
           <div className="content__content__body">
             {bodyText1 && <p>{bodyText1}</p>}
             {bodyText2 && <p>{bodyText2}</p>}
             {bodyText3 && <p>{bodyText3}</p>}
             {bodyText4 && <p>{bodyText4}</p>}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

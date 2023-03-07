@@ -1,3 +1,4 @@
+import AccordionGroup from "./accordion-group/AccordionGroup";
 import Button from "./button/Button";
 import Card from "./card/Card";
 import Content from "./content/Content";
@@ -14,6 +15,7 @@ import TestimonialSlider from "./testimonial-slider/TestimonialSlider";
 import Video from "./video/Video";
 
 export {
+  AccordionGroup,
   Button,
   Card,
   Content,
