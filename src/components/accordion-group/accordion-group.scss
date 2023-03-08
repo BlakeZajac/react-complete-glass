@@ -2,10 +2,39 @@
 
 .accordion {
   &__items {
+    overflow: hidden;
+
+    &:hover {
+      .accordion__items__circle {
+        transform: scale(1);
+      }
+    }
+
+    * {
+      position: relative;
+    }
+
     padding-left: 5rem;
 
     @media all and (max-width: $bp-tablet) {
       padding-left: 2rem;
+    }
+
+    &__circle {
+      transform: scale(0);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-black;
+      border-radius: 50%;
+      width: 4.5rem;
+      height: 4.5rem;
+      mix-blend-mode: difference;
+      @extend %text-uppercase;
+      color: $color-white;
+      margin-bottom: -4.5rem;
+      letter-spacing: 0.05em;
     }
 
     &__item {
@@ -15,9 +44,15 @@
       padding: 1.5rem 0;
       cursor: pointer;
       width: 100%;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+      &:last-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
 
       &:hover {
+        cursor: none;
+
         .accordion__items__item__content__header {
           &::after {
             transform: rotate(-45deg);
@@ -76,11 +111,11 @@
         &__content {
           max-height: 0;
           overflow: hidden;
-          transition: all 1s ease-in-out;
+          transition: all 0.75s ease-in-out;
 
           &--expanded {
             max-height: 100px;
-            transition: all 1s ease-in-out;
+            transition: all 0.75s ease-in-out;
           }
         }
       }

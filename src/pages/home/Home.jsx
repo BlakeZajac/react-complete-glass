@@ -19,9 +19,11 @@ import {
   HeadingBlock,
   Hero,
   MediaWithText,
-  TestimonialSlider,
   Video,
 } from "../../components/index";
+
+import News from "../../containers/news/News";
+
 import "./home.scss";
 
 const Home = () => {
@@ -70,6 +72,41 @@ const Home = () => {
     },
   ];
 
+  const faqAccordionItems = [
+    {
+      title: "Are your windows environmentally friendly?",
+      content:
+        "Yes, our windows won't have an impact on the environment once fitted. They are also 100% recyclable.",
+      expanded: false,
+    },
+    {
+      title: "I've just broken a window, what should I do?",
+      content:
+        "Don't panic, keep everyone away from the window and areas where the glass may have fallen. We're available 24/7 if this occurs. Reach out to one of our team members at 1300 147 247",
+      expanded: false,
+    },
+    {
+      title: "How much will it cost?",
+      content:
+        "Always one of the first questions we get asked. Depending on your request the pricing structure will change. We offer fast quotes and if you wish, you can request a quote through our contact page.",
+    },
+    {
+      title: "What areas do you service?",
+      content:
+        "We offer our services throughout Sydney, whether it be in the city or a smaller quiet suburb.",
+    },
+    {
+      title: "Can glass scratches be removed?",
+      content:
+        "It is possible, however we offer very competitive pricing and it may be cheaper to replace it entirely.",
+    },
+    {
+      title: "Are your glazing contractors qualified?",
+      content:
+        "Yes. Our team are qualified and licensed. To request information on the registered names, please contact us.",
+    },
+  ];
+
   return (
     <main className="main-content">
       <Hero
@@ -97,7 +134,6 @@ const Home = () => {
       <div className="services section">
         <div className="services__row row">
           <HeadingBlock
-            className="services__content"
             multiHeadingOneText="Professional service"
             multiHeadingTwoText="Glazing services"
             headingText="Experience a professional and responsive glass service with us. Specialising in residential, commercial, industrial, and retail glass solutions and emergency replacements. Discover how we can elevate your space."
@@ -151,7 +187,17 @@ const Home = () => {
         className2="btn--white"
       />
 
-      <TestimonialSlider />
+      {/* <TestimonialSlider /> */}
+
+      <div className="faq section">
+        <div className="faq__row row">
+          <HeadingBlock headingText="Discover the solutions you're looking for with our insightful FAQs. Find answers to all your questions about our services." />
+
+          <AccordionGroup items={faqAccordionItems} />
+        </div>
+      </div>
+
+      <News postsPerPage={3} />
     </main>
   );
 };
