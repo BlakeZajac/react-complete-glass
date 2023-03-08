@@ -7,7 +7,7 @@ const News = ({ postsPerPage }) => {
   useEffect(() => {
     axios
       .get(
-        `https://crossorigin.me/https://www.completeglass.com.au/wp-json/wp/v2/posts?per_page=${postsPerPage}&_embed`
+        `https://www.completeglass.com.au/wp-json/wp/v2/posts?per_page=${postsPerPage}&_embed`
       )
       .then((response) => {
         setPosts(response.data);

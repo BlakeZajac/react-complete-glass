@@ -33,7 +33,7 @@ const Footer = () => {
 
     try {
       const response = await axios.post(
-        `https://crossorigin.me/https://api.createsend.com/api/v3.3/subscribers/${listId}.{xml|json}`,
+        `https://api.createsend.com/api/v3.3/subscribers/${listId}.{xml|json}`,
         data,
         {
           auth: {
