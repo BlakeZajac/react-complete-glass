@@ -22,7 +22,7 @@ const Footer = () => {
   const footerListRef = useRef(null);
 
   const adminApiKey = process.env.REACT_APP_CM_ADMIN_KEY;
-  // const clientId = process.env.REACT_APP_CM_CLIENT_ID;
+  const clientId = process.env.REACT_APP_CM_CLIENT_ID;
   const listId = process.env.REACT_APP_CM_LIST_ID;
 
   const handleSubmit = async (e) => {
@@ -32,16 +32,11 @@ const Footer = () => {
     const data = { EmailAddress: email };
 
     try {
-      const response = await axios.post(
-        `https://api.createsend.com/api/v3.3/subscribers/${listId}.{xml|json}`,
-        data,
-        {
-          auth: {
-            username: adminApiKey,
-            password: "",
-          },
-        }
-      );
+      const response = await axios.post("http://localhost:3000/proxy", {
+        url: `https://api.createsend.com/api/v3.3/subscribers/${listId}.json`,
+        headers: { "Content-Type": "application/json" },
+        body: data,
+      });
 
       if (response.status === 201) {
         setSuccess(true);

@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.4",
+    "express": "^4.18.2",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,6 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3000",
+  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -47,5 +50,16 @@
   },
   "devDependencies": {
     "http-proxy-middleware": "^2.0.6"
+  },
+  "description": "Complete Glass are an expert Sydney-wide glazing company. Priding themsleves on their responsive and professional service – from emergency repairs to large scale commercial projects.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlakeZajac/react-complete-glass.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlakeZajac/react-complete-glass/issues"
   }
 }
