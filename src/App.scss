@@ -276,6 +276,20 @@ p {
   }
 }
 
+// Helpers
+.modal-open {
+  header,
+  .hero,
+  .content,
+  .video,
+  .services,
+  .media-with-text,
+  .faq,
+  footer {
+    display: none;
+  }
+}
+
 // Animation
 $animation-up-cubic-half: reveal-up 0.5s cubic-bezier(0.5, 0, 0.5, 1);
 $animation-up-reverse-cubic-half: reveal-up-reverse 0.5s

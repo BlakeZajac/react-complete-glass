@@ -1,1 +1,37 @@
 @import "../../App.scss";
+
+.modal {
+  width: 90%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+
+  &__container {
+    padding: 2rem;
+    background-color: $color-white;
+  }
+
+  &__hero {
+    &__row {
+      &.top {
+      }
+
+      &.center {
+      }
+
+      &.bottom {
+      }
+    }
+
+    &__title {
+    }
+
+    &__excerpt {
+    }
+
+    &__content {
+    }
+  }
+}
