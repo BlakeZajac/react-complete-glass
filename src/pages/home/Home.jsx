@@ -197,7 +197,16 @@ const Home = () => {
         </div>
       </div>
 
-      <News postsPerPage={3} />
+      <div className="news section">
+        <div className="news__row row">
+          <HeadingBlock
+            multiHeadingOneText="From the blog"
+            multiHeadingTwoText="By Complete Glass"
+            headingText="Stay ahead of the game with our latest news and updates. Learn about our exciting projects, industry insights, and company developments."
+          />
+          <News postsPerPage={3} />
+        </div>
+      </div>
     </main>
   );
 };
