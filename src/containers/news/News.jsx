@@ -25,6 +25,7 @@ const News = ({ postsPerPage }) => {
     const clickedPost = posts.find((post) => post.id === postId);
     setClickedPost(clickedPost);
     setShowModal(true);
+    window.scrollTo(0, 0);
   };
 
   const handleClose = () => {

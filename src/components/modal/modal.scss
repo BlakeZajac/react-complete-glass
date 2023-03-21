@@ -1,37 +1,126 @@
 @import "../../App.scss";
 
 .modal {
-  width: 90%;
+  width: 80%;
   height: 100vh;
   position: absolute;
   top: 0;
   right: 0;
-  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 1;
 
   &__container {
-    padding: 2rem;
     background-color: $color-white;
   }
 
   &__hero {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__overlay {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
     &__row {
-      &.top {
+      position: relative;
+      padding: 2rem;
+
+      &.top,
+      &.bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
       &.center {
+        padding: 8rem 2rem;
       }
+    }
 
-      &.bottom {
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      border-radius: 50%;
+
+      svg {
+        font-size: 1.25rem;
+        color: $color-white;
       }
+    }
+
+    &__badge {
+      padding: 8px 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      backdrop-filter: blur(8px);
+      color: $color-white;
+      @extend %text-uppercase;
+    }
+
+    &__close,
+    &__scroll {
+      cursor: pointer;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: center;
+      color: $color-white;
+      @extend %text-uppercase;
+    }
+
+    &__title,
+    &__excerpt {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     &__title {
+      padding-bottom: 2rem;
+      color: $color-white;
     }
 
     &__excerpt {
+      p {
+        color: $color-white;
+      }
+    }
+  }
+
+  &__content {
+    padding: 3rem;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding-top: 3rem;
     }
 
-    &__content {
+    p,
+    ol,
+    ul {
+      padding: 1rem 0;
+      line-height: 1.7;
     }
+  }
+
+  &__body-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
   }
 }

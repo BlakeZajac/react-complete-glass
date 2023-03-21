@@ -277,7 +277,13 @@ p {
 }
 
 // Helpers
+.modal__body-overlay {
+  display: none;
+}
+
 .modal-open {
+  overflow-y: hidden;
+
   header,
   .hero,
   .content,
@@ -285,8 +291,12 @@ p {
   .services,
   .media-with-text,
   .faq,
-  footer {
+  .footer {
     display: none;
+  }
+
+  .modal__body-overlay {
+    display: block;
   }
 }
 
