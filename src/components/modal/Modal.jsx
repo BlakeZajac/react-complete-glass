@@ -66,6 +66,22 @@ const Modal = ({ post, handleClose, backgroundSrc }) => {
     setReadingTime(time);
   }, [post.content]);
 
+  useEffect(() => {
+    const bodyOverlay = document.querySelector(".modal__body-overlay");
+
+    const handleOverlayClick = (e) => {
+      if (e.target === bodyOverlay) {
+        handleModalClose();
+      }
+    };
+
+    bodyOverlay.addEventListener("click", handleOverlayClick);
+
+    return () => {
+      bodyOverlay.removeEventListener("click", handleOverlayClick);
+    };
+  });
+
   return (
     <div className="modal">
       <div className="modal__container">

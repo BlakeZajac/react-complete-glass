@@ -11,9 +11,15 @@ const News = ({ postsPerPage }) => {
   useEffect(() => {
     axios
       .get(
-        `https://www.completeglass.com.au/wp-json/wp/v2/posts?per_page=${postsPerPage}&_embed`
+        `https://www.completeglass.com.au/wp-json/wp/v2/posts?per_page=${postsPerPage}&_embed=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_WORDPRESS_APPLICATION_PASSWORD}`,
+          },
+        }
       )
       .then((response) => {
+        console.log(response.data);
         setPosts(response.data);
       })
       .catch((error) => {
@@ -51,12 +57,16 @@ const News = ({ postsPerPage }) => {
           onClick={() => handleClick(post.id)}
           className="news__post"
         >
-          <div className="news__post__featured-image">
-            <img
-              src={post._embedded["wp:featuredmedia"][0].source_url}
-              alt={post.title.rendered}
-            />
-          </div>
+          {post._embedded["wp:featuredmedia"] &&
+            post._embedded["wp:featuredmedia"][0] && (
+              <div className="news__post__featured-image">
+                <img
+                  src={post._embedded["wp:featuredmedia"][0].source_url}
+                  alt={post.title.rendered}
+                />
+              </div>
+            )}
+
           <p className="news__post__published">
             {new Date(post.date)
               .toLocaleDateString("en-US", {
